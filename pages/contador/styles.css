@@ -1,0 +1,267 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #e0f2f1, #f1f8e9);
+  color: #2e7d32;
+  overflow-x: hidden;
+}
+
+/* Botão do menu */
+#menu-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 1000;
+  border-radius: 6px;
+}
+
+/* Menu lateral */
+#side-menu {
+  position: fixed;
+  top: 0;
+  left: -220px;
+  width: 200px;
+  height: 100%;
+  background-color: #388e3c;
+  padding-top: 60px;
+  transition: left 0.3s;
+  z-index: 999;
+}
+
+#side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+#side-menu ul li {
+  margin: 20px;
+}
+
+#side-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#side-menu.open {
+  left: 0;
+}
+/* Fim Menu Lateral */
+
+/* === CONTEÚDO PRINCIPAL === */
+main {
+  flex: 1;
+  padding: 20px 75px;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- REGRAS DO HEADER, LOGO E TÍTULO - REORGANIZADAS E AJUSTADAS --- */
+/* Regras para o HEADER principal */
+header {
+  /* O padding agora será gerenciado pelo .header-title */
+  background: linear-gradient(90deg, #43a047, #66bb6a);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  /* Remova o padding original que causava o problema de espaçamento */
+  padding: 0; /* Isso é crucial para que o padding do .header-title funcione */
+}
+
+/* Container que alinha o logo e o título */
+.header-title {
+  display: flex; /* Habilita o Flexbox */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  justify-content: center; /* Centraliza o logo e o título horizontalmente */
+  gap: 20px; /* Espaçamento entre o logo e o título, ajuste se precisar */
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+  padding: 20px; /* Adiciona o padding para o conteúdo do header */
+}
+
+/* O "quadradinho" branco arredondado que envolve o logo */
+.logo-container {
+  background-color: white; /* Cor de fundo branca */
+  border-radius: 15px; /* Arredondamento das bordas */
+  padding: 10px; /* Espaçamento interno para o logo não colar nas bordas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para o efeito 3D */
+  display: flex; /* Para centralizar o logo dentro do container */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+/* A imagem do logo dentro do container */
+.logo-container img {
+  width: 80px;   /* Largura do logo, ajuste se necessário */
+  height: auto;  /* Mantém a proporção da imagem */
+  /* Removi o !important pois com a ordem correta não é mais necessário */
+}
+
+/* Estilo para o título, para garantir que ele apareça bem ao lado do logo */
+header h1 {
+  margin: 0; /* Remove a margem padrão do h1 para melhor alinhamento com flexbox */
+  font-size: 2.5rem; /* Mantenha o tamanho que já estava */
+  color: white; /* Cor do texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para o texto */
+}
+/* --- FIM DAS REGRAS DO HEADER, LOGO E TÍTULO --- */
+
+
+#arvore-img {
+  max-width: 280px;
+  margin: 20px auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+  cursor: default;
+}
+
+/* Pulsar a árvore no crescimento final */
+#arvore-img.pulsar {
+  animation: pulsar 1.5s infinite;
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px #66bb6a);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #4caf50);
+  }
+}
+
+#arvore-img:hover {
+  transform: scale(1.05);
+}
+
+.pontos {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btns button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: #66bb6a;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btns button:hover {
+  background: #4caf50;
+  transform: translateY(-2px);
+}
+
+footer {
+  background-color: #cce5cc;
+  text-align: center;
+  padding: 10px;
+  position: relative; /* ou remova qualquer "position: fixed" */
+  width: 100%;
+  bottom: 0;
+}
+
+#parabens {
+  font-size: 1.8rem;
+  color: #2e7d32;
+  background: #a5d6a7;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 30px auto 0;
+  display: none;
+  user-select: none;
+  z-index: 10;
+  position: relative;
+}
+
+.folha {
+  position: fixed;
+  top: -50px;
+  font-size: 24px;
+  animation: cair 5s linear infinite;
+  opacity: 0.8;
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes cair {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Emojis para limite */
+.emoji-limite {
+  position: fixed;
+  font-size: 28px;
+  user-select: none;
+  pointer-events: none;
+  top: -40px;
+  animation-name: cairEmoji;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 50;
+}
+
+@keyframes cairEmoji {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+#limite-container {
+  display: none;
+  position: relative;
+  z-index: 20;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  aside {
+    width: 100%;
+    text-align: center;
+  }
+  main {
+    padding: 20px;
+  }
+}
